@@ -1,0 +1,85 @@
+/* this is a CSS comment */
+
+/* here, we change some of the default styles on our main document elements */
+html, body {
+	margin: 0;
+	background-color: lightskyblue;
+}
+
+@media(max-width: 767px) {
+	html, body {
+		background-color: #00ff00;
+	}
+}
+
+body {
+	padding: 20px;
+}
+
+.silly-text {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #5e1fe6;
+	font-size: 40px;
+	text-wrap: balance;
+	
+	/* display: flex; */
+    /* flex-direction:row-reverse; */
+
+}
+
+.centre-text {
+	text-align: center;
+}
+
+.gallery {
+    display: flex;
+	/* ↑ 让图片横向排列 */
+    flex-wrap: wrap;
+	/* ↑ 一行放不下时自动换到下一行。 */
+    gap: 10px;
+	/* ↑ 图片间距 */
+}
+
+.pigeon {
+    /* background-color: red; */   
+    color: white;  /* color就是字体颜色 */
+    font-family: monospace;
+	font-size: 25px;
+	/* font-weight: bold;  字体加粗 */
+	font-weight:700;
+    padding: 5px;
+
+}
+
+.sticky-position {
+   
+	position: sticky;
+    top:5% 
+	/* 这里用 % 不用px因为这样可以适应浏览器页面大小变化 */
+
+}
+
+a:hover {
+	color:#00ff00;
+}
+
+pre:hover {
+	color: rgb(241, 255, 85);
+}
+
+.gallery img {
+    width: 150px;
+    transition: transform 0.3s ease;
+	/* ease:让放大和缩小的过程更平滑 */
+	/* 这个写在 .gallery img 里，而不是 .gallery img:hover 里，因为 transition 不只是控制鼠标移入时的动画，还控制鼠标移出时的动画！ */
+}
+
+.gallery img:hover {
+    transform: scale(1.2);
+	/* 把图片放大到原来的 1.2 倍，也就是放大 20%。 */
+	/* scale() 负责视觉放大，不会像修改 width 那样重新计算图片布局 */
+    
+	position: relative;
+    z-index: 1;
+	/* 让悬停的图片显示在其他图片上方，减少被遮挡的情况。 */
+}
